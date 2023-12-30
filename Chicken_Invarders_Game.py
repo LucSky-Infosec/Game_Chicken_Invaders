@@ -11,19 +11,19 @@ pygame.init()
 screen=pygame.display.set_mode((800, 600))    #(x,y)
 "2_Chagging title, Logo, Backgound color"
 pygame.display.set_caption("Chicken Invader Z")
-icon=pygame.image.load(r"D:\Chicken_Invaders_Game\data\images\icon.webp")
+icon=pygame.image.load(r"data\images\icon.webp")
 pygame.display.set_icon(icon)
 "9_Adding a Background Image"
-intro_image = pygame.image.load(r"D:\Chicken_Invaders_Game\data\images\background_intro.jpg")
-background=pygame.image.load(r"D:\Chicken_Invaders_Game\data\images\chicken_invaders_2.png")
+intro_image = pygame.image.load(r"data\images\background_intro.jpg")
+background=pygame.image.load(r"data\images\chicken_invaders_2.png")
 #Score
 "Add font for pygame"
-font=pygame.font.Font(r"D:\Chicken_Invaders_Game\data\font\FreeSansBold.ttf", 32)
+font=pygame.font.Font(r"data\font\FreeSansBold.ttf", 32)
 #Game over text
-over_font=pygame.font.Font(r"D:\Chicken_Invaders_Game\data\font\FreeSansBold.ttf", 64)
+over_font=pygame.font.Font(r"data\font\FreeSansBold.ttf", 64)
 "15_1_Adding Sounds and Background Music"
 #Background sound
-mixer.music.load(r"D:\Chicken_Invaders_Game\data\audio\Super Smash Bros. Melee Music_ Menu 1.mp3")
+mixer.music.load(r"data\audio\Super Smash Bros. Melee Music_ Menu 1.mp3")
 mixer.music.play(-1)
 "16_Game over"
 class Game:
@@ -40,7 +40,7 @@ class Game:
 class Player(Game):
     def __init__(self) -> None:
         super().__init__()
-        self.Img= pygame.image.load(r"D:\Chicken_Invaders_Game\data\images\spaceship_6 (1).png")
+        self.Img= pygame.image.load(r"data\images\spaceship_6 (1).png")
         self.x=370
         self.y=500
         self.x_change=0
@@ -52,12 +52,12 @@ class Player(Game):
 class Enemy(Game):
     def __init__(self) -> None:
         super().__init__()
-        self.Img= pygame.image.load(r"D:\Chicken_Invaders_Game\data\images\BigChickenCI4_2.png")
+        self.Img= pygame.image.load(r"data\images\BigChickenCI4_2.png")
         self.x=370
         self.y=5
         self.x_change=1
         self.y_change=60
-        self.sound=mixer.Sound(r"D:\Chicken_Invaders_Game\data\audio\Chicken_sound.mp3")
+        self.sound=mixer.Sound(r"data\audio\Chicken_sound.mp3")
     def update(self, x, y):
         super().update(x, y)
         screen.blit(self.Img,(self.x,self.y))
@@ -65,12 +65,12 @@ class Enemy(Game):
 class Bullet(Game):
     def __init__(self) -> None:
         super().__init__()
-        self.Img= pygame.image.load(r"D:\Chicken_Invaders_Game\data\images\IonBlasterSingle.png")
+        self.Img= pygame.image.load(r"data\images\IonBlasterSingle.png")
         self.x=370
         self.y=500
         self.y_change=3
         self.state="ready"
-        self.sound=mixer.Sound(r"D:\Chicken_Invaders_Game\data\audio\IonBlasterSingle_Sound.mp3")
+        self.sound=mixer.Sound(r"data\audio\IonBlasterSingle_Sound.mp3")
     def update(self, x, y):
         super().update(x, y)
         #Ready - You can't see the bullet on the screen
@@ -102,7 +102,7 @@ class Game_over(Game):
         self.value=0
         self.x=290
         self.y=250
-        self.sound=mixer.Sound(r"D:\Chicken_Invaders_Game\data\audio\Linda.mp3")
+        self.sound=mixer.Sound(r"data\audio\Linda.mp3")
     def update(self, x, y):
         self.Img=font.render("GAME OVER",True, (255,255,255))
         screen.blit(self.Img,(self.x+15,self.y-10))
@@ -111,8 +111,8 @@ class Game_win(Game):
     def __init__(self) -> None:
         super().__init__()
         self.Img1=font.render("GAME WIN",True, (255,255,255))
-        self.Img2 = pygame.image.load(r"D:\Chicken_Invaders_Game\data\images\gift_box.png")
-        self.sound=mixer.Sound(r"D:\Chicken_Invaders_Game\data\audio\Linda.mp3")
+        self.Img2 = pygame.image.load(r"data\images\gift_box.png")
+        self.sound=mixer.Sound(r"data\audio\Linda.mp3")
         self.x = 300
         self.y = 200
     def update(self):
@@ -138,7 +138,7 @@ def game_intro():
         # Display the game interface
         screen.fill((0, 30, 0))
         screen.blit(pygame.transform.scale(intro_image, (800, 600)), (0, 0))
-        start_button_image = pygame.image.load(r"D:\Chicken_Invaders_Game\data\images\startButton.png")
+        start_button_image = pygame.image.load(r"data\images\startButton.png")
         screen.blit(pygame.transform.scale(start_button_image, (150,100)), (330, 390))
         # intro_text = over_font.render("Chicken Invader Z", True, (255, 255, 255))
         # start_text = font.render("Press any key or click to start", True, (255, 255, 255))
